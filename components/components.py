@@ -22,3 +22,10 @@ class WebElement:
     # Новый метод для получения текста с элементов:
     def get_text(self):
         return str(self.find_element().text)
+
+    def visible(self):
+        return self.find_element().is_displayed()
+
+    # НОВЫЙ МЕТОД ДЛЯ ПРОВЕРКИ ВИДИМОСТИ (домашнее задание №8)
+    def visible(self):
+        return self.find_element().is_displayed()
