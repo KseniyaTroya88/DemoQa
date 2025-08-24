@@ -12,6 +12,10 @@ class WebElement:
     def find_element(self):
         return self.driver.find_element(By.CSS_SELECTOR, self.locator)
 
+    # Дописали метод find_elements (для лекции 9)
+    def find_elements(self):
+        return self.driver.find_elements(By.CSS_SELECTOR, self.locator)
+
     def exist(self):
         try:
             self.find_element()
@@ -26,6 +30,16 @@ class WebElement:
     def visible(self):
         return self.find_element().is_displayed()
 
-    # НОВЫЙ МЕТОД ДЛЯ ПРОВЕРКИ ВИДИМОСТИ (домашнее задание №8)
+    # НОВЫЙ МЕТОД ДЛЯ ПРОВЕРКИ ВИДИМОСТИ (домашнее задание №8):
     def visible(self):
         return self.find_element().is_displayed()
+
+    # Метод check_count_elements() (лекция 9):
+    def check_count_elements(self, count: int) -> bool:
+        if len(self.find_elements()) == count:
+            return True
+        return False
+
+    # Метод send_keys (лекция 9):
+    def send_keys(self, text: str):
+        self.find_element().send_keys(text)
