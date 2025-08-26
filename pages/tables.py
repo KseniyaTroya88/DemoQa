@@ -27,6 +27,14 @@ class Tables(BasePage):
         self.table_rows = WebElement(driver, '.rt-tr-group')
         self.table_cells = WebElement(driver, '.rt-td')
 
+        # Для домашнего задания 12
+        self.first_name_header = WebElement(driver, '.rt-th:-soup-contains("First Name")')
+        self.last_name_header = WebElement(driver, '.rt-th:-soup-contains("Last Name")')
+        self.age_header = WebElement(driver, '.rt-th:-soup-contains("Age")')
+        self.email_header = WebElement(driver, '.rt-th:-soup-contains("Email")')
+        self.salary_header = WebElement(driver, '.rt-th:-soup-contains("Salary")')
+        self.department_header = WebElement(driver, '.rt-th:-soup-contains("Department")')
+
         def _get_data_rows(self):
             """Возвращает только строки с данными (исключает заголовки и пустые строки)"""
             all_rows = self.table_rows.find_elements()
