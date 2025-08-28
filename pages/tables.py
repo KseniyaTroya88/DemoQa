@@ -1,7 +1,6 @@
 from components.components import WebElement
 from pages.base_page import BasePage
 
-
 class Tables(BasePage):
     def __init__(self, driver):
         self.base_url = 'https://demoqa.com/webtables/'
@@ -27,26 +26,13 @@ class Tables(BasePage):
         self.table_rows = WebElement(driver, '.rt-tr-group')
         self.table_cells = WebElement(driver, '.rt-td')
 
-        # Для домашнего задания 12
-        self.first_name_header = WebElement(driver, '.rt-th:-soup-contains("First Name")')
-        self.last_name_header = WebElement(driver, '.rt-th:-soup-contains("Last Name")')
-        self.age_header = WebElement(driver, '.rt-th:-soup-contains("Age")')
-        self.email_header = WebElement(driver, '.rt-th:-soup-contains("Email")')
-        self.salary_header = WebElement(driver, '.rt-th:-soup-contains("Salary")')
-        self.department_header = WebElement(driver, '.rt-th:-soup-contains("Department")')
-
-        def _get_data_rows(self):
-            """Возвращает только строки с данными (исключает заголовки и пустые строки)"""
-            all_rows = self.table_rows.find_elements()
-            data_rows = []
-
-            for row in all_rows:
-                # Проверяем, что строка не пустая и не заголовок
-                cells = row.find_elements_by_css_selector('.rt-td')
-                if cells and cells[0].text.strip():  # Первая ячейка не пустая
-                    data_rows.append(row)
-
-            return data_rows
+        # Заголовки для сортировки
+        self.first_name_header = WebElement(driver, '.rt-th:first-child')
+        self.last_name_header = WebElement(driver, '.rt-th:nth-child(2)')
+        self.age_header = WebElement(driver, '.rt-th:nth-child(3)')
+        self.email_header = WebElement(driver, '.rt-th:nth-child(4)')
+        self.salary_header = WebElement(driver, '.rt-th:nth-child(5)')
+        self.department_header = WebElement(driver, '.rt-th:nth-child(6)')
 
 
         # с занятия 11:

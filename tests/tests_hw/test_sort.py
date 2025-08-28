@@ -2,11 +2,9 @@ import time
 import pytest
 from pages.tables import Tables
 
-
 def test_table_sorting(browser):
     """Тест сортировки таблицы"""
     table_page = Tables(browser)
-
     table_page.visit()
     time.sleep(2)
 
